@@ -59,6 +59,8 @@ namespace BusinessServices
             var country = Db.Countries.FirstOrDefault(x => x.Id == input.CountryId);
             if (country == null)
                 throw new Exception("Country is not found");
+            if (!input.MobileNumber.StartsWith(country.PhoneCode))
+                throw new Exception("Wrong phone code");
             var user = new User
             {
                 FullName = input.FullName,
@@ -83,14 +85,18 @@ namespace BusinessServices
             user.MobileNumber = !string.IsNullOrEmpty(input.MobileNumber) && input.MobileNumber != user.MobileNumber ? input.MobileNumber : user.MobileNumber;
             user.State = input.State.HasValue && (byte)input.State.Value != user.State ? (byte)input.State.Value : user.State;
             user.LastUpdateTime = DateTime.UtcNow;
-
-            if (input.CountryId.HasValue && input.CountryId.Value != user.CountryId)
+            var country = Db.Countries.FirstOrDefault(x => x.Id == user.CountryId);
+            if (input.CountryId != user.CountryId)
             {
-                var country = Db.Countries.FirstOrDefault(x => x.Id == input.CountryId);
+                country = Db.Countries.FirstOrDefault(x => x.Id == input.CountryId);
                 if (country == null)
                     throw new Exception("Country is not found");
+
                 user.CountryId = country.Id;
             }
+
+            if (!user.MobileNumber.StartsWith(country.PhoneCode))
+                throw new Exception("Wrong phone code");
 
             Db.SaveChanges();
         }

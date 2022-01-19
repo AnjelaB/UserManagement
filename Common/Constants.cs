@@ -4,8 +4,8 @@
     {
         public enum UserState
         {
-            Active,
-            Inactive
+            Active = 1,
+            Inactive = 2
         }
     }
 }

@@ -14,6 +14,6 @@ namespace Common.ModelsDTO.Input
 
         public Constants.UserState? State { get; set; }
 
-        public int? CountryId { get; set; }
+        public int CountryId { get; set; }
     }
 }
