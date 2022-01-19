@@ -1,0 +1,6 @@
+C:\Users\Anjel\Desktop\UserManagement\Common\bin\Debug\Common.dll
+C:\Users\Anjel\Desktop\UserManagement\Common\bin\Debug\Common.pdb
+C:\Users\Anjel\Desktop\UserManagement\Common\obj\Debug\Common.csprojAssemblyReference.cache
+C:\Users\Anjel\Desktop\UserManagement\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
+C:\Users\Anjel\Desktop\UserManagement\Common\obj\Debug\Common.dll
+C:\Users\Anjel\Desktop\UserManagement\Common\obj\Debug\Common.pdb
